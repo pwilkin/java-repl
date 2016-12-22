@@ -7,7 +7,7 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'maven-publish'
 
-def projectVersion = System.getenv('PROJECT_VERSION') != null ? System.getenv('PROJECT_VERSION') : 'dev'
+def projectVersion = "syndatis-6"
 def projectCompilerArgs = ["-Xlint:all", "-Xlint:-processing", "-Xlint:-serial", "-Werror"]
 
 
@@ -55,11 +55,17 @@ def pomConfig = {
             name "Albert Latacz"
             email "albert.latacz@gmail.com"
         }
+
+        developer {
+            id "pwilkin"
+            name "Piotr Wilkin"
+            email "piotr.wilkin@syndatis.com"
+        }
     }
 
     scm {
-        url 'git@github.com:albertlatacz/java-repl.git'
-        connection 'scm:git@github.com:albertlatacz/java-repl.git'
+        url 'git@github.com:pwilkin/java-repl.git'
+        connection 'scm:git@github.com:pwilkin/java-repl.git'
     }
 
 }

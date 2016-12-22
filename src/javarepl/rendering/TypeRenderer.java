@@ -16,9 +16,12 @@ public class TypeRenderer {
     @multimethod
     public static String renderType(Type type) {
         Type extractedType = extractType(type);
+        if (extractedType == null) {
+            extractedType = type;
+        }
         return new multi() {
         }.<String>methodOption(extractedType)
-                .getOrElse(extractedType.toString());
+                .getOrElse(String.valueOf(extractedType));
     }
 
     @multimethod

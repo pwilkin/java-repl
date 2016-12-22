@@ -11,8 +11,8 @@ import static com.googlecode.totallylazy.io.URLs.toURL;
 public class EvaluationClassLoader extends URLClassLoader {
     private Sequence<URL> registeredUrls = sequence();
 
-    private EvaluationClassLoader(EvaluationContext context) {
-        super(new URL[]{toURL().apply(context.outputDirectory())});
+    protected EvaluationClassLoader(EvaluationContext context) {
+        super(context == null ? new URL[] {} : new URL[]{toURL().apply(context.outputDirectory())});
     }
 
     public static EvaluationClassLoader evaluationClassLoader(EvaluationContext context) {
